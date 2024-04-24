@@ -14,4 +14,4 @@ RUN apt-get update \
 COPY . /usr/src/app
 RUN mvn clean install
 
-CMD ["java", "-jar", "target/myapp.jar"]
+CMD ["java", "-jar", "target/myapp-1.jar"]
