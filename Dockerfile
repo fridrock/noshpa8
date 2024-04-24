@@ -1,10 +1,11 @@
-FROM couchbase/server:community
+FROM node:18-alpine
 
-LABEL maintainer="fridrix.aleksandr.2004@mail.ru"
+WORKDIR /usr/src/app
 
-ENV CB_USERNAME=admin
-ENV CB_PASSWORD=admin
-ENV CB_BUCKET=default
-ENV CB_BUCKET_PASSWORD=bucket
+COPY package*.json ./
 
-EXPOSE 8101 8102 8103
+RUN npm install
+COPY . .
+
+EXPOSE 3000
+CMD [ "node", "server.js" ]
