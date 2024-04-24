@@ -1,6 +1,6 @@
 FROM openjdk:11
 
-ENV MAVEN_HOME /usr/share/maven 
+ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_VERSION 3.8.2
 ENV PATH $MAVEN_HOME/bin:$PATH
 
@@ -14,4 +14,4 @@ RUN apt-get update \
 COPY . /usr/src/app
 RUN mvn clean install
 
-CMD ["java", "-jar", "target/myapp-1.jar"]
+CMD ["java", "-jar", "target/second-1.jar"]
