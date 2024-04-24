@@ -1,9 +1,10 @@
-FROM drupal
+FROM couchbase/server:community
 
-RUN apt-get update \ 
-    && apt-get install -y libpq-dev \
-    && rm -rf /var/lib/apt/lists/*
+LABEL maintainer="fridrix.aleksandr.2004@mail.ru"
 
-COPY . /var/www/html/
+ENV CB_USERNAME=admin
+ENV CB_PASSWORD=admin
+ENV CB_BUCKET=default
+ENV CB_BUCKET_PASSWORD=bucket
 
-EXPOSE 80
+EXPOSE 8101 8102 8103
